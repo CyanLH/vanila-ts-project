@@ -10,7 +10,7 @@ interface ResFuncInterface {
 }
 
 const getMimetype = (req: http.IncomingMessage) => {
-  let mimetype = 'text/plain';
+  let mimetype = 'text/html';
   if (req?.url) {
     const dotOffset = req.url.lastIndexOf('.');
     if (dotOffset !== -1) {
@@ -40,6 +40,7 @@ const getMimetype = (req: http.IncomingMessage) => {
           mimetype = 'text/javascript';
           break;
         default:
+          mimetype = 'text/plain';
           break;
       }
     }
@@ -51,7 +52,7 @@ const getResponse = ({ err, data, res, req, mimetype }: ResFuncInterface) => {
   if (!err) {
     res.setHeader('Content-type', mimetype);
     res.end(data);
-    console.log(req.url, mimetype);
+    // console.log(req.url, mimetype);
   } else {
     console.log(err);
     res.end();
