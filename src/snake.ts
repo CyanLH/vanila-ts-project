@@ -5,7 +5,7 @@ let cx: number; // coin
 const MY = 20;
 const MX = 34; // field size
 let score: number;
-let keepMove: number;
+let keepMove: ReturnType<typeof setTimeout>;
 let direction: number; // 0 1 2 3 상 하 좌 우
 let speed;
 const snakeQueue: any[][] = [];
@@ -50,8 +50,11 @@ function drawWall() {
   for (let i = 0; i < wallCell.length; i += 1) {
     const wy = wallCell[i][0];
     const wx = wallCell[i][1];
-    document.getElementById(`${wy} ${wx}`).style.background = wallColor;
-    document.getElementById(`${wy} ${wx}`).style.borderRadius = '1.5px';
+    const wallElement = document.getElementById(`${wy} ${wx}`);
+    if (wallElement instanceof HTMLElement) {
+      wallElement.style.background = wallColor;
+      wallElement.style.borderRadius = '1.5px';
+    }
   }
 }
 
@@ -59,7 +62,7 @@ function drawWall() {
 function setSnake(sy: number, sx: number) {
   snakeQueue.push(new Array(sy, sx));
   const el = document.getElementById(`${sy} ${sx}`);
-  if (el) {
+  if (el instanceof HTMLElement) {
     el.style.background = snakeColor;
   }
 }
@@ -69,7 +72,7 @@ function removeSnake() {
   const tx = snakeQueue[0][1];
   snakeQueue.shift();
   const el = document.getElementById(`${ty} ${tx}`);
-  if (el) {
+  if (el instanceof HTMLElement) {
     el.style.background = tileColor;
   }
 }
@@ -101,8 +104,11 @@ function setCoin() {
     cy = Math.round(rand / (MX - 2) + 1);
     cx = Math.round((rand % (MX - 2)) + 1);
   } while (isInQueue(cy, cx));
-  document.getElementById(`${cy} ${cx}`).style.background = coinColor;
-  document.getElementById(`${cy} ${cx}`).style.borderRadius = '6px';
+  const coinElement = document.getElementById(`${cy} ${cx}`);
+  if (coinElement instanceof HTMLElement) {
+    coinElement.style.background = coinColor;
+    coinElement.style.borderRadius = '6px';
+  }
 }
 
 function isCoin() {
@@ -111,10 +117,13 @@ function isCoin() {
 
 function showPlus() {
   const plusedScore = 100 * (snakeQueue.length - 1);
-  document.getElementById('plus').innerHTML = `     +${plusedScore}`;
-  setTimeout(() => {
-    document.getElementById('plus').innerHTML = '';
-  }, 500);
+  const plusElement = document.getElementById('plus');
+  if (plusElement instanceof HTMLElement) {
+    plusElement.innerHTML = `     +${plusedScore}`;
+    setTimeout(() => {
+      plusElement.innerHTML = '';
+    }, 500);
+  }
 }
 
 // 점수 처리 및 표시
@@ -124,7 +133,7 @@ function meetCoin() {
     setCoin();
     showPlus();
     const el = document.getElementById(`${y} ${x}`);
-    if (el) {
+    if (el instanceof HTMLElement) {
       el.style.borderRadius = '3px';
     }
   } else {
@@ -133,28 +142,20 @@ function meetCoin() {
   }
 }
 
-// 초기 설정
-function initSnake() {
-  drawBoard();
-  drawWall();
-  y = MY / 2;
-  x = MX / 2;
-  setSnake(y, x);
-  setCoin();
-  score = 0;
-  direction = -1;
-  speed = 75;
-  keepMove = setInterval(() => move(direction), speed);
+// 점수 반영
+function scoring() {
+  const scoreElement = document.getElementById('score');
+  if (scoreElement instanceof HTMLElement) {
+    scoreElement.innerHTML = `${score}`;
+  }
 }
 
-// 점수 반영 및 게임 오버
-function scoring() {
-  document.getElementById('score').innerHTML = `${score}`;
-}
+// 게임 오버
 function gameover() {
   alert('[Game Over]\nScore: ' + score);
+  clearInterval(keepMove);
   initSnake();
-  location.reload();
+  window.location.reload();
 }
 
 // 뱀 조작
@@ -181,6 +182,20 @@ function move(snakeDirection: number) {
   setSnake(y, x);
   meetCoin();
   scoring();
+}
+
+// 초기 설정
+function initSnake() {
+  drawBoard();
+  drawWall();
+  y = MY / 2;
+  x = MX / 2;
+  setSnake(y, x);
+  setCoin();
+  score = 0;
+  direction = -1;
+  speed = 75;
+  keepMove = setInterval(() => move(direction), speed);
 }
 
 initSnake();
