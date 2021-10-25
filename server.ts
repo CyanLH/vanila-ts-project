@@ -63,9 +63,12 @@ const server = http.createServer((req, res) => {
   if (req.url === '/') {
     const mimetype = 'text/html';
     fs.readFile('./index.html', (err, data) => getResponse({ err, data, res, req, mimetype }));
-  } else {
+  } else if (typeof req.url === 'string') {
     const mimetype = getMimetype(req);
-    fs.readFile(`./${req.url}`, (err, data) => getResponse({ err, data, res, req, mimetype }));
+    const url = req.url.split('.');
+    fs.readFile(`./${url.length > 1 ? req.url : `${url}.html`}`, (err, data) =>
+      getResponse({ err, data, res, req, mimetype }),
+    );
   }
 });
 
