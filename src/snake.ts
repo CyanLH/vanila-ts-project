@@ -8,7 +8,7 @@ let score: number;
 let keepMove: ReturnType<typeof setTimeout>;
 let direction: number; // 0 1 2 3 상 하 좌 우
 let speed;
-const snakeQueue: any[][] = [];
+const snakeQueue: number[][] = [];
 const snakeColor = '#ED5B5B';
 const tileColor = '#EEEEEE';
 const wallColor = '#2E2E2E';
@@ -43,10 +43,10 @@ function drawBoard() {
 // 벽 표시
 function drawWall() {
   const wallCell = [];
-  for (let i = 0; i < MY; i += 1) wallCell.push(new Array(i, 0));
-  for (let i = 0; i < MY; i += 1) wallCell.push(new Array(i, MX - 1));
-  for (let i = 0; i < MX; i += 1) wallCell.push(new Array(0, i));
-  for (let i = 0; i < MX; i += 1) wallCell.push(new Array(MY - 1, i));
+  for (let i = 0; i < MY; i += 1) wallCell.push([i, 0]);
+  for (let i = 0; i < MY; i += 1) wallCell.push([i, MX - 1]);
+  for (let i = 0; i < MX; i += 1) wallCell.push([0, i]);
+  for (let i = 0; i < MX; i += 1) wallCell.push([MY - 1, i]);
   for (let i = 0; i < wallCell.length; i += 1) {
     const wy = wallCell[i][0];
     const wx = wallCell[i][1];
@@ -60,7 +60,7 @@ function drawWall() {
 
 // 뱀 표시
 function setSnake(sy: number, sx: number) {
-  snakeQueue.push(new Array(sy, sx));
+  snakeQueue.push([sy, sx]);
   const el = document.getElementById(`${sy} ${sx}`);
   if (el instanceof HTMLElement) {
     el.style.background = snakeColor;
@@ -79,7 +79,7 @@ function removeSnake() {
 
 // 뱀 충돌 관련 함수
 function isInQueue(fy: number, fx: number) {
-  const p = new Array(fy, fx);
+  const p = [fy, fx];
   for (let i = 0; i < snakeQueue.length; i += 1) {
     if (snakeQueue[i][0] === p[0] && snakeQueue[i][1] === p[1]) {
       return true;
@@ -152,9 +152,9 @@ function scoring() {
 
 // 게임 오버
 function gameover() {
-  alert('[Game Over]\nScore: ' + score);
+  alert(`[Game Over]\nScore: ${score}`);
   clearInterval(keepMove);
-  initSnake();
+  // initSnake();
   window.location.reload();
 }
 

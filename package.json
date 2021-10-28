@@ -5,7 +5,7 @@
   "author": "CyanLH",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node server",
+    "start": "tsc && ts-node server",
     "dev": "nodemon --watch **/*.ts --watch **/*.html --watch **/*.css --watch **/*.js --exec ts-node server"
   },
   "dependencies": {},

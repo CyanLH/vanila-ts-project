@@ -106,3 +106,6 @@ dist
 .idea/
 *.lock
 package-lock.json
+
+# JS file
+*.js

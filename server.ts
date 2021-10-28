@@ -30,7 +30,7 @@ const getMimetype = (req: http.IncomingMessage) => {
         case '.gif':
           mimetype = 'image/gif';
           break;
-        case '.svg' || '.xml':
+        case '.svg':
           mimetype = 'image/svg+xml';
           break;
         case '.css':
@@ -38,6 +38,9 @@ const getMimetype = (req: http.IncomingMessage) => {
           break;
         case '.js':
           mimetype = 'text/javascript';
+          break;
+        case '.ts':
+          mimetype = 'text/x-typescript';
           break;
         default:
           mimetype = 'text/plain';
@@ -66,9 +69,8 @@ const server = http.createServer((req, res) => {
   } else if (typeof req.url === 'string') {
     const mimetype = getMimetype(req);
     const url = req.url.split('.');
-    fs.readFile(`./${url.length > 1 ? req.url : `${url}.html`}`, (err, data) =>
-      getResponse({ err, data, res, req, mimetype }),
-    );
+    const filePath = `./${url.length > 1 ? req.url : `${url}.html`}`;
+    fs.readFile(filePath, (err, data) => getResponse({ err, data, res, req, mimetype }));
   }
 });
 
