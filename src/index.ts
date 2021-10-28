@@ -1,7 +1,4 @@
 const init = () => {
-  const test = [];
-  test.push(1);
-  // console.log(test);
   const div = document.getElementById('d');
   if (div) {
     div.addEventListener('click', (evt: MouseEvent) => {
