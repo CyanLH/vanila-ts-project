@@ -9,6 +9,8 @@ interface ResFuncInterface {
   mimetype: string;
 }
 
+const PORT_NUMBER = 80;
+
 const getMimetype = (req: http.IncomingMessage) => {
   let mimetype = 'text/html';
   if (req?.url) {
@@ -74,5 +76,5 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(8080, () => console.log('✔success: http://localhost:8080'));
+server.listen(PORT_NUMBER, () => console.log(`✔success: http://localhost:${PORT_NUMBER}`));
 server.on('error', (err: Error) => console.warn(err));
