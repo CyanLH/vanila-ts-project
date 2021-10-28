@@ -16,15 +16,15 @@ const coinColor = '#4476C6';
 
 // 키보드 입력 이벤트 처리
 function keyDownEventHandler(e: KeyboardEvent) {
-  if (e.keyCode === 38 && direction !== 1) direction = 0;
   // up
-  else if (e.keyCode === 40 && direction !== 0) direction = 1;
+  if (e.code === 'ArrowUp' && direction !== 1) direction = 0;
   // down
-  else if (e.keyCode === 37 && direction !== 3) direction = 2;
+  else if (e.code === 'ArrowDown' && direction !== 0) direction = 1;
   // left
-  else if (e.keyCode === 39 && direction !== 2) direction = 3; // right
+  else if (e.code === 'ArrowLeft' && direction !== 3) direction = 2;
+  // right
+  else if (e.code === 'ArrowRight' && direction !== 2) direction = 3;
 }
-document.onkeydown = keyDownEventHandler;
 
 // 보드판 표시
 function drawBoard() {
@@ -100,9 +100,9 @@ function isInvalidMove(fy: number, fx: number) {
 // 동전 생성 및 충돌
 function setCoin() {
   do {
-    const rand = Math.random() * ((MY - 2) * (MX - 2));
-    cy = Math.round(rand / (MX - 2) + 1);
-    cx = Math.round((rand % (MX - 2)) + 1);
+    const rand = Math.random() * ((MY - 3) * (MX - 3));
+    cy = Math.round(rand / (MX - 3) + 1);
+    cx = Math.round((rand % (MX - 3)) + 1);
   } while (isInQueue(cy, cx));
   const coinElement = document.getElementById(`${cy} ${cx}`);
   if (coinElement instanceof HTMLElement) {
@@ -154,7 +154,6 @@ function scoring() {
 function gameover() {
   alert(`[Game Over]\nScore: ${score}`);
   clearInterval(keepMove);
-  // initSnake();
   window.location.reload();
 }
 
@@ -186,6 +185,7 @@ function move(snakeDirection: number) {
 
 // 초기 설정
 function initSnake() {
+  window.addEventListener('keydown', keyDownEventHandler);
   drawBoard();
   drawWall();
   y = MY / 2;
