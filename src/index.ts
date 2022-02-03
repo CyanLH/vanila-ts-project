@@ -11,7 +11,14 @@ const headerInit = () => {
   }
 };
 
-const mainInit = () => {
+const mainTitleInit: (parent: Node) => void = (parent) => {
+  const container = document.createElement('div');
+  container.classList.add('main-title');
+
+  parent.appendChild(container);
+};
+
+const mainInit: () => void = () => {
   const mainContainer = document.createElement('main');
   const pEle = document.createElement('p');
 
@@ -34,6 +41,7 @@ const mainInit = () => {
   codeWrap.appendChild(codeEl);
   preWrap.appendChild(preEl);
 
+  mainTitleInit(mainContainer);
   mainContainer.appendChild(codeWrap);
   mainContainer.appendChild(preWrap);
 
@@ -42,9 +50,32 @@ const mainInit = () => {
   }
 };
 
+const logoInit: (parent: Node) => void = (parent) => {
+  const logoEle = document.createElement('h1');
+  logoEle.innerHTML = 'logo';
+  parent.appendChild(logoEle);
+};
+
+const infoInit: (parent: Node) => void = (parent) => {
+  const infoEle = document.createElement('div');
+  infoEle.innerHTML = '이한 | dlgksk5@gmail.com';
+  parent.appendChild(infoEle);
+};
+
+const licenseInit: (parent: Node) => void = (parent) => {
+  const licenseEle = document.createElement('div');
+  licenseEle.innerHTML = 'License';
+  parent.appendChild(licenseEle);
+};
+
 const footerInit = () => {
   const footerEl = document.createElement('footer');
-  footerEl.innerHTML = 'footer';
+  const footerContainer = document.createElement('div');
+  footerContainer.classList.add('footer-container');
+  logoInit(footerContainer);
+  infoInit(footerContainer);
+  licenseInit(footerContainer);
+  footerEl.appendChild(footerContainer);
   bodyEl.appendChild(footerEl);
 };
 
