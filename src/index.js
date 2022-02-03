@@ -1,14 +1,5 @@
 "use strict";
 const [bodyEl] = document.getElementsByTagName('body');
-const headerInit = () => {
-    const headerEl = document.createElement('header');
-    const title = document.createElement('h1');
-    title.innerText = 'Vanilla TS Project';
-    headerEl.appendChild(title);
-    if (bodyEl instanceof HTMLBodyElement) {
-        bodyEl.appendChild(headerEl);
-    }
-};
 const mainTitleInit = (parent) => {
     const container = document.createElement('div');
     container.classList.add('main-title');
@@ -39,35 +30,8 @@ const mainInit = () => {
         bodyEl.append(mainContainer);
     }
 };
-const logoInit = (parent) => {
-    const logoEle = document.createElement('h1');
-    logoEle.innerHTML = 'logo';
-    parent.appendChild(logoEle);
-};
-const infoInit = (parent) => {
-    const infoEle = document.createElement('div');
-    infoEle.innerHTML = '이한 | dlgksk5@gmail.com';
-    parent.appendChild(infoEle);
-};
-const licenseInit = (parent) => {
-    const licenseEle = document.createElement('div');
-    licenseEle.innerHTML = 'License';
-    parent.appendChild(licenseEle);
-};
-const footerInit = () => {
-    const footerEl = document.createElement('footer');
-    const footerContainer = document.createElement('div');
-    footerContainer.classList.add('footer-container');
-    logoInit(footerContainer);
-    infoInit(footerContainer);
-    licenseInit(footerContainer);
-    footerEl.appendChild(footerContainer);
-    bodyEl.appendChild(footerEl);
-};
 const init = () => {
-    headerInit();
     mainInit();
-    footerInit();
 };
 init();
 /*
