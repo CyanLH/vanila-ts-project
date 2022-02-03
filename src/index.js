@@ -3,6 +3,12 @@ const [bodyEl] = document.getElementsByTagName('body');
 const mainTitleInit = (parent) => {
     const container = document.createElement('div');
     container.classList.add('main-title');
+    for (let i = 0; i < 20; i += 1) {
+        const evenBetter = document.createElement('h1');
+        evenBetter.innerHTML = Array(18).fill('Even Better...').join(' ');
+        evenBetter.classList.add(`even-better-${i % 2 === 0 ? 'first' : 'second'}`);
+        container.appendChild(evenBetter);
+    }
     parent.appendChild(container);
 };
 const mainInit = () => {
