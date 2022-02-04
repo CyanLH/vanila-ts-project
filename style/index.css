@@ -114,6 +114,8 @@ pre {
   display: block;
   color: var(--font-color);
   width: 200%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @keyframes even-better-animation-second {
@@ -129,6 +131,8 @@ pre {
   display: block;
   color: var(--font-color);
   width: 200%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 header input[type='checkbox'] {
