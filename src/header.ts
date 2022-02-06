@@ -25,7 +25,7 @@ const headerInit = () => {
   const [bodyEl] = document.getElementsByTagName('body');
   const headerEl: HTMLHeadElement = document.createElement('header');
   const title: HTMLHeadingElement = document.createElement('h1');
-  title.innerText = 'Vanilla TS Project';
+  title.innerText = 'CyanLH';
   // title.addEventListener('click', titleEvtListener);
   headerEl.appendChild(title);
 

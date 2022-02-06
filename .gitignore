@@ -107,5 +107,7 @@ dist
 *.lock
 package-lock.json
 
+.DS_Store
+
 # JS file
 # *.js

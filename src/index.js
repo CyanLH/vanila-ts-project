@@ -14,11 +14,11 @@ const mainTitleInit = (parent) => {
 const mainInit = () => {
     const mainContainer = document.createElement('main');
     const pEle = document.createElement('p');
-    const codeEl = document.createElement('code');
+    const codeEl = document.createElement('h1');
     codeEl.addEventListener('click', (evt) => {
         window.location.href = 'pages/snake';
     });
-    codeEl.innerHTML = "const myName = 'Lee Han'";
+    codeEl.innerHTML = "<code>const myName = 'Lee Han'</code>";
     const preEl = document.createElement('pre');
     preEl.innerHTML = `const leeHan = {
   stack: 'front end',
@@ -31,7 +31,7 @@ const mainInit = () => {
     preWrap.appendChild(preEl);
     mainTitleInit(mainContainer);
     mainContainer.appendChild(codeWrap);
-    mainContainer.appendChild(preWrap);
+    // mainContainer.appendChild(preWrap);
     if (bodyEl instanceof HTMLBodyElement) {
         bodyEl.append(mainContainer);
     }

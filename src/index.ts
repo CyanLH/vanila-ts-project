@@ -19,11 +19,11 @@ const mainInit: () => void = () => {
   const mainContainer = document.createElement('main');
   const pEle = document.createElement('p');
 
-  const codeEl = document.createElement('code');
+  const codeEl = document.createElement('h1');
   codeEl.addEventListener('click', (evt: MouseEvent) => {
     window.location.href = 'pages/snake';
   });
-  codeEl.innerHTML = "const myName = 'Lee Han'";
+  codeEl.innerHTML = "<code>const myName = 'Lee Han'</code>";
 
   const preEl = document.createElement('pre');
   preEl.innerHTML = `const leeHan = {
@@ -40,7 +40,7 @@ const mainInit: () => void = () => {
 
   mainTitleInit(mainContainer);
   mainContainer.appendChild(codeWrap);
-  mainContainer.appendChild(preWrap);
+  // mainContainer.appendChild(preWrap);
 
   if (bodyEl instanceof HTMLBodyElement) {
     bodyEl.append(mainContainer);

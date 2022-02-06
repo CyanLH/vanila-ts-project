@@ -1,7 +1,24 @@
 "use strict";
 const logoInit = (parent) => {
-    const logoEle = document.createElement('h1');
-    logoEle.innerHTML = 'logo | github | blog';
+    const logoEle = document.createElement('div');
+    const githubEle = document.createElement('a');
+    githubEle.target = '_blank';
+    githubEle.href = 'https://github.com/CyanLH';
+    const githubLogo = document.createElement('img');
+    githubLogo.src = 'static/github.png';
+    githubLogo.classList.add('logo-img');
+    githubLogo.alt = 'github';
+    githubEle.appendChild(githubLogo);
+    const blogEle = document.createElement('a');
+    blogEle.target = '_blank';
+    blogEle.href = 'https://CyanLH.github.io';
+    const blogLogo = document.createElement('img');
+    blogLogo.src = 'static/profile.png';
+    blogLogo.classList.add('logo-img');
+    blogLogo.alt = 'CyanLH blog';
+    blogEle.appendChild(blogLogo);
+    logoEle.appendChild(githubEle);
+    logoEle.appendChild(blogEle);
     parent.appendChild(logoEle);
 };
 const infoInit = (parent) => {

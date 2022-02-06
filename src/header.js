@@ -1,7 +1,6 @@
 "use strict";
 const titleEvtListener = (evt) => {
-    // const currentTheme = document.documentElement.getAttribute('color-theme');
-    if (evt?.target?.checked) {
+    if (evt.target.checked) {
         document.documentElement.setAttribute('color-theme', 'dark');
     }
     else {
@@ -23,7 +22,7 @@ const headerInit = () => {
     const [bodyEl] = document.getElementsByTagName('body');
     const headerEl = document.createElement('header');
     const title = document.createElement('h1');
-    title.innerText = 'Vanilla TS Project';
+    title.innerText = 'CyanLH';
     // title.addEventListener('click', titleEvtListener);
     headerEl.appendChild(title);
     addToggleSwitch(headerEl);
