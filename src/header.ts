@@ -26,8 +26,12 @@ const headerInit = () => {
   const headerEl: HTMLHeadElement = document.createElement('header');
   const title: HTMLHeadingElement = document.createElement('h1');
   title.innerText = 'CyanLH';
-  // title.addEventListener('click', titleEvtListener);
   headerEl.appendChild(title);
+
+  const menu: HTMLHeadingElement = document.createElement('h2');
+  menu.innerText = 'Home | About | Skills | Contact';
+
+  headerEl.appendChild(menu);
 
   addToggleSwitch(headerEl);
 

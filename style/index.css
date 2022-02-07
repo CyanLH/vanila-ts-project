@@ -62,7 +62,7 @@ body > main > .main-title {
 }
 
 .main-title h1,
-h2 {
+.main-title h2 {
   font-family: D2Coding;
 }
 
@@ -98,7 +98,7 @@ body > footer > .footer-container {
 }
 
 .footer-container > div,
-h1 {
+.footer-container > h1 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
