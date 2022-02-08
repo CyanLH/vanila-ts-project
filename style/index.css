@@ -8,25 +8,36 @@
     url('D2Coding-ligature-subset.ttf') format('truetype'), url('D2Coding-ligature-subset.svg') format('svg');
 }
 
+@font-face {
+  font-family: 'NanumGangInHanWiRo';
+  src: local('NanumGangInHanWiRo'), local('나눔손글씨 강인한 위로'),
+    url('https://ssl.pstatic.net/static/clova/service/clova_ai/event/handwriting/fonts_220208/4/4.woff2')
+      format('woff2'),
+    url('https://ssl.pstatic.net/static/clova/service/clova_ai/event/handwriting/fonts_220208/4/4.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --background-color: #fff;
-  --background-color-reverse: #000;
-  --font-color: #000;
+  --background-color-reverse: #121212;
+  --font-color: #121212;
   --font-color-reverse: #fff;
 }
 
 :root[color-theme='light'] {
   --background-color: #fff;
-  --background-color-reverse: #000;
-  --font-color: #000;
+  --background-color-reverse: #121212;
+  --font-color: #121212;
   --font-color-reverse: #fff;
 }
 
 :root[color-theme='dark'] {
-  --background-color: #000;
+  --background-color: #121212;
   --background-color-reverse: #fff;
   --font-color: #fff;
-  --font-color-reverse: #000;
+  --font-color-reverse: #121212;
 }
 
 html,
@@ -234,4 +245,36 @@ header input:checked + label:after {
 
 header label:active:after {
   width: 25px;
+}
+
+.test-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.test-container svg {
+  max-width: 45rem;
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke: #000;
+  stroke-width: 4;
+}
+
+.test-container svg tspan > tspan {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: -1500;
+}
+
+.test-container svg tspan > tspan:nth-child(n) {
+  animation: draw 300ms 150ms forwards;
+}
+
+@keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
 }

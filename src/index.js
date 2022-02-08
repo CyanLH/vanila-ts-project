@@ -31,8 +31,29 @@ const mainInit = () => {
     codeWrap.appendChild(codeEl);
     // preWrap.appendChild(preEl);
     mainTitleInit(mainContainer);
-    mainContainer.appendChild(codeWrap);
+    // mainContainer.appendChild(codeWrap);
     // mainContainer.appendChild(preWrap);
+    const test = document.createElement('div');
+    test.classList.add('test-container');
+    test.innerHTML = `
+  <svg viewBox="0 0 800 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<title>@WebDesignerMag</title>
+		<g stroke="none" fill="none" fill-rule="evenodd" fill-opacity="0">
+			<text id="@WebDesignerMag" stroke="#aaa" fill="#645F5A" font-weight="normal" font-family="NanumGangInHanWiRo, Permanent Marker" font-size="244">
+				<tspan x="3" y="132"><!--
+					--><tspan>@</tspan><!--
+					--><tspan>C</tspan><!--
+					--><tspan>y</tspan><!--
+					--><tspan>a</tspan><!--
+					--><tspan>n</tspan><!--
+					--><tspan>L</tspan><!--
+					--><tspan>H</tspan><!--
+				--></tspan>
+			</text>
+		</g>
+  </svg>
+  `;
+    mainContainer.append(test);
     if (bodyEl instanceof HTMLBodyElement) {
         bodyEl.append(mainContainer);
     }
