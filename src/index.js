@@ -14,6 +14,7 @@ const mainTitleInit = (parent) => {
 const mainInit = () => {
     const mainContainer = document.createElement('main');
     const pEle = document.createElement('p');
+    pEle.classList.add('home');
     const codeEl = document.createElement('h1');
     codeEl.addEventListener('click', (evt) => {
         window.location.href = 'pages/snake';
@@ -26,9 +27,9 @@ const mainInit = () => {
   practice: 'typescript',
 };`;
     const codeWrap = pEle.cloneNode();
-    const preWrap = pEle.cloneNode();
+    // const preWrap = pEle.cloneNode();
     codeWrap.appendChild(codeEl);
-    preWrap.appendChild(preEl);
+    // preWrap.appendChild(preEl);
     mainTitleInit(mainContainer);
     mainContainer.appendChild(codeWrap);
     // mainContainer.appendChild(preWrap);

@@ -8,11 +8,11 @@ const skillInit = (name, extension, description) => {
 };
 const contentsInit = () => {
     const [mainEl] = document.getElementsByTagName('main');
-    const skillsEle = document.createElement('section');
-    skillsEle.classList.add('skills-container');
+    const skillsContainer = document.createElement('div');
+    skillsContainer.classList.add('skills-container');
     const skillsTItle = document.createElement('h2');
     skillsTItle.innerHTML = '<code>SKILLS</code>';
-    skillsEle.appendChild(skillsTItle);
+    skillsContainer.appendChild(skillsTItle);
     const skillsLogosEle = document.createElement('div');
     const logoImgList = [
         'react.svg',
@@ -30,7 +30,10 @@ const contentsInit = () => {
         skillsLogosEle.appendChild(logoEle);
     });
     skillsLogosEle.classList.add('sction-skill-logos');
-    skillsEle.appendChild(skillsLogosEle);
-    mainEl.appendChild(skillsEle);
+    skillsContainer.appendChild(skillsLogosEle);
+    const skillsWrapper = document.createElement('section');
+    skillsWrapper.appendChild(skillsContainer);
+    skillsWrapper.classList.add('skills-wrapper');
+    mainEl.appendChild(skillsWrapper);
 };
 contentsInit();

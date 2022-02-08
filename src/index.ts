@@ -18,6 +18,7 @@ const mainTitleInit: (parent: Node) => void = (parent) => {
 const mainInit: () => void = () => {
   const mainContainer = document.createElement('main');
   const pEle = document.createElement('p');
+  pEle.classList.add('home');
 
   const codeEl = document.createElement('h1');
   codeEl.addEventListener('click', (evt: MouseEvent) => {
@@ -33,10 +34,10 @@ const mainInit: () => void = () => {
 };`;
 
   const codeWrap = pEle.cloneNode();
-  const preWrap = pEle.cloneNode();
+  // const preWrap = pEle.cloneNode();
 
   codeWrap.appendChild(codeEl);
-  preWrap.appendChild(preEl);
+  // preWrap.appendChild(preEl);
 
   mainTitleInit(mainContainer);
   mainContainer.appendChild(codeWrap);

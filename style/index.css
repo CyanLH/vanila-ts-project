@@ -55,15 +55,35 @@ body > main {
   flex-direction: column;
 }
 
+main .home {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: unset;
+}
+
 body > main > .main-title {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  position: fixed;
 }
 
 .main-title h1,
 .main-title h2 {
   font-family: D2Coding;
+}
+
+main .skills-wrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 main .skills-container {
@@ -87,8 +107,12 @@ main .skills-container .sction-skill-logos .skill-logo {
 }
 
 body > footer {
-  margin: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: calc(100% - 53px - 1rem);
+  padding: 0.5rem 0;
   color: var(--font-color);
+  background-color: var(--background-color);
 }
 
 body > footer > .footer-container {
