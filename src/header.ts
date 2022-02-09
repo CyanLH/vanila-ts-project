@@ -28,12 +28,16 @@ const headerInit = () => {
   title.innerText = 'CyanLH';
   headerEl.appendChild(title);
 
+  const headerButtonWrap: HTMLDivElement = document.createElement('div');
+  headerButtonWrap.classList.add('haeder-items-wrap');
+
   const menu: HTMLHeadingElement = document.createElement('h2');
   menu.innerText = 'Home | About | Skills | Contact';
+  headerButtonWrap.appendChild(menu);
 
-  headerEl.appendChild(menu);
+  addToggleSwitch(headerButtonWrap);
 
-  addToggleSwitch(headerEl);
+  headerEl.appendChild(headerButtonWrap);
 
   if (bodyEl instanceof HTMLBodyElement) {
     bodyEl.appendChild(headerEl);

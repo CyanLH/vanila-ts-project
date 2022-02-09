@@ -24,10 +24,13 @@ const headerInit = () => {
     const title = document.createElement('h1');
     title.innerText = 'CyanLH';
     headerEl.appendChild(title);
+    const headerButtonWrap = document.createElement('div');
+    headerButtonWrap.classList.add('haeder-items-wrap');
     const menu = document.createElement('h2');
     menu.innerText = 'Home | About | Skills | Contact';
-    headerEl.appendChild(menu);
-    addToggleSwitch(headerEl);
+    headerButtonWrap.appendChild(menu);
+    addToggleSwitch(headerButtonWrap);
+    headerEl.appendChild(headerButtonWrap);
     if (bodyEl instanceof HTMLBodyElement) {
         bodyEl.appendChild(headerEl);
     }

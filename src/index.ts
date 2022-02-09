@@ -46,22 +46,33 @@ const mainInit: () => void = () => {
   const test = document.createElement('div');
   test.classList.add('test-container');
   test.innerHTML = `
-  <svg viewBox="0 0 800 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<title>@WebDesignerMag</title>
-		<g stroke="none" fill="none" fill-rule="evenodd" fill-opacity="0">
-			<text id="@WebDesignerMag" stroke="#aaa" fill="#645F5A" font-weight="normal" font-family="NanumGangInHanWiRo, Permanent Marker" font-size="244">
-				<tspan x="3" y="132"><!--
-					--><tspan>@</tspan><!--
-					--><tspan>C</tspan><!--
-					--><tspan>y</tspan><!--
-					--><tspan>a</tspan><!--
-					--><tspan>n</tspan><!--
-					--><tspan>L</tspan><!--
-					--><tspan>H</tspan><!--
-				--></tspan>
-			</text>
-		</g>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" fill="var(--font-color)">
+      <text font-weight="normal" font-family="flood-std" font-size="7em" y="100">
+        <tspan>
+          <tspan>@</tspan>
+          <tspan>C</tspan>
+          <tspan>y</tspan>
+          <tspan>a</tspan>
+          <tspan>n</tspan>
+          <tspan>L</tspan>
+          <tspan>H</tspan>
+        </tspan>
+      </text>
+    </g>
   </svg>
+  <div>
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+      <path id="path">
+        <animate attributeName="d" from="m0,110 h0" to="m0,110 h1100" dur="6.8s" begin="0s" repeatCount="indefinite"/>
+      </path>
+      <text font-size="26" font-family="D2Coding" fill="var(--font-color)">
+        <textPath xlink:href="#path">
+          const myName = 'LeeHan';
+        </textPath>
+      </text>
+    </svg>
+  </div>
   `;
   mainContainer.append(test);
 
