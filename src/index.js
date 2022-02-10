@@ -35,21 +35,24 @@ const mainInit = () => {
     // mainContainer.appendChild(preWrap);
     const test = document.createElement('div');
     test.classList.add('test-container');
+    // <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    //   <g stroke="none" fill="var(--font-color)">
+    //     <text font-weight="normal" font-family="flood-std" font-size="7em" y="100" text-anchor="middle">
+    //       <tspan>
+    //         <tspan>@</tspan>
+    //         <tspan>C</tspan>
+    //         <tspan>y</tspan>
+    //         <tspan>a</tspan>
+    //         <tspan>n</tspan>
+    //         <tspan>L</tspan>
+    //         <tspan>H</tspan>
+    //       </tspan>
+    //     </text>
+    //   </g>
+    // </svg>
     test.innerHTML = `
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g stroke="none" fill="var(--font-color)">
-      <text font-weight="normal" font-family="flood-std" font-size="7em" y="100">
-        <tspan>
-          <tspan>@</tspan>
-          <tspan>C</tspan>
-          <tspan>y</tspan>
-          <tspan>a</tspan>
-          <tspan>n</tspan>
-          <tspan>L</tspan>
-          <tspan>H</tspan>
-        </tspan>
-      </text>
-    </g>
+  <svg class="svg-cyanlh" viewBox="0 0 1320 300">
+    <text x="50%" y="50%" dy=".35em" text-anchor="middle">@CyanLH</text>
   </svg>
   <div>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
