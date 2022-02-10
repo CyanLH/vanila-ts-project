@@ -11,6 +11,7 @@ const addToggleSwitch = (parent) => {
     const inputEl = document.createElement('input');
     const labelEl = document.createElement('label');
     inputEl.setAttribute('type', 'checkbox');
+    inputEl.setAttribute('checked', 'true');
     inputEl.id = 'switch';
     labelEl.setAttribute('for', 'switch');
     labelEl.innerHTML = 'Toggle';

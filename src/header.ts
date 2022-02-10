@@ -7,10 +7,11 @@ const titleEvtListener: (evt: any) => void = (evt) => {
 };
 
 const addToggleSwitch: (parent: Node) => void = (parent) => {
-  const inputEl = document.createElement('input');
-  const labelEl = document.createElement('label');
+  const inputEl: HTMLInputElement = document.createElement('input');
+  const labelEl: HTMLLabelElement = document.createElement('label');
 
   inputEl.setAttribute('type', 'checkbox');
+  inputEl.setAttribute('checked', 'true');
   inputEl.id = 'switch';
 
   labelEl.setAttribute('for', 'switch');

@@ -8,7 +8,11 @@ const skillInit = (name, extension, description) => {
 };
 const contentsInit = () => {
     const [mainEl] = document.getElementsByTagName('main');
-    const skillsContainer = document.createElement('div');
+    const aboutContainer = document.createElement('section');
+    aboutContainer.classList.add('about-container');
+    aboutContainer.innerText = '여기에 소개 들어가야함. 이름, 경력 등';
+    mainEl.appendChild(aboutContainer);
+    const skillsContainer = document.createElement('section');
     skillsContainer.classList.add('skills-container');
     const skillsTItle = document.createElement('h2');
     skillsTItle.innerHTML = '<code>SKILLS</code>';
@@ -35,5 +39,9 @@ const contentsInit = () => {
     skillsWrapper.appendChild(skillsContainer);
     skillsWrapper.classList.add('skills-wrapper');
     mainEl.appendChild(skillsWrapper);
+    const contactContainer = document.createElement('section');
+    contactContainer.classList.add('contact-container');
+    contactContainer.innerText = '여기는 연락. mail, git 등등? wanted or programmers 이력서? notion?';
+    mainEl.appendChild(contactContainer);
 };
 contentsInit();

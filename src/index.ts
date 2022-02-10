@@ -44,7 +44,7 @@ const mainInit: () => void = () => {
   // mainContainer.appendChild(preWrap);
 
   const test = document.createElement('div');
-  test.classList.add('test-container');
+  test.classList.add('svg-container');
   // <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   //   <g stroke="none" fill="var(--font-color)">
   //     <text font-weight="normal" font-family="flood-std" font-size="7em" y="100" text-anchor="middle">
