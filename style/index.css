@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'D2 coding Ligature subset';
   font-style: normal;
   font-weight: 400;
@@ -6,9 +6,9 @@
   src: local('※'), local('D2Coding ligature'), url('D2Coding-ligature-subset.eot?#iefix') format('embedded-opentype'),
     url('D2Coding-ligature-subset.woff2') format('x-woff2'), url('D2Coding-ligature-subset.woff') format('woff'),
     url('D2Coding-ligature-subset.ttf') format('truetype'), url('D2Coding-ligature-subset.svg') format('svg');
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: 'NanumGangInHanWiRo';
   src: local('NanumGangInHanWiRo'), local('나눔손글씨 강인한 위로'),
     url('https://ssl.pstatic.net/static/clova/service/clova_ai/event/handwriting/fonts_220208/4/4.woff2')
@@ -17,7 +17,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-}
+} */
 
 :root {
   --background-color: #121212;
