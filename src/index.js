@@ -52,11 +52,11 @@ const mainInit = () => {
     </g>
   </svg>
   <div>
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
       <path id="path">
         <animate attributeName="d" from="m0,110 h0" to="m0,110 h1100" dur="6.8s" begin="0s" repeatCount="indefinite"/>
       </path>
-      <text font-size="26" font-family="D2Coding" fill="var(--font-color)">
+      <text font-size="1.55em" font-family="D2Coding" fill="var(--font-color)">
         <textPath xlink:href="#path">
           const myName = 'LeeHan';
         </textPath>
