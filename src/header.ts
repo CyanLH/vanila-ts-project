@@ -1,67 +1,73 @@
-const titleEvtListener: (evt: any) => void = (evt) => {
-  if (evt.target.checked) {
-    document.documentElement.setAttribute('color-theme', 'dark');
-  } else {
-    document.documentElement.setAttribute('color-theme', 'light');
+export default class Header {
+  private parent: HTMLBodyElement;
+  private headerContainer: HTMLHeadElement;
+  private title: HTMLHeadingElement;
+  constructor(parent: HTMLBodyElement) {
+    this.parent = parent;
+    this.headerContainer = document.createElement('header');
+    this.title = document.createElement('h1');
   }
-};
 
-const addToggleSwitch: (parent: Node) => void = (parent) => {
-  const inputEl: HTMLInputElement = document.createElement('input');
-  const labelEl: HTMLLabelElement = document.createElement('label');
+  private titleEvtListener: (evt: any) => void = (evt) => {
+    if (evt.target.checked) {
+      document.documentElement.setAttribute('color-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('color-theme', 'light');
+    }
+  };
 
-  inputEl.setAttribute('type', 'checkbox');
-  inputEl.setAttribute('checked', 'true');
-  inputEl.id = 'switch';
+  private addToggleSwitch: (parent: Node) => void = (parent) => {
+    const inputEl: HTMLInputElement = document.createElement('input');
+    const labelEl: HTMLLabelElement = document.createElement('label');
 
-  labelEl.setAttribute('for', 'switch');
-  labelEl.innerHTML = 'Toggle';
+    inputEl.setAttribute('type', 'checkbox');
+    inputEl.setAttribute('checked', 'true');
+    inputEl.id = 'switch';
 
-  parent.appendChild(inputEl);
-  parent.appendChild(labelEl);
-  inputEl.addEventListener('change', titleEvtListener);
-};
+    labelEl.setAttribute('for', 'switch');
+    labelEl.innerHTML = 'Toggle';
 
-const addMenuList: (parent: Node) => void = (parent) => {
-  const menu: HTMLUListElement = document.createElement('ul');
-  menu.classList.add('header-menu-wrap');
-  menu.addEventListener('click', (evt: MouseEvent) => {
-    const { value } = <HTMLLIElement>evt.target;
-    window.scroll({ left: 0, top: value * window.innerHeight, behavior: 'smooth' });
-  });
+    parent.appendChild(inputEl);
+    parent.appendChild(labelEl);
+    inputEl.addEventListener('change', this.titleEvtListener);
+  };
 
-  ['Home', 'About', 'Skills', 'Contact'].forEach((item, index) => {
-    const menuItem: HTMLLIElement = document.createElement('li');
-    menuItem.innerText = item;
-    menuItem.value = index;
-    menu.appendChild(menuItem);
-  });
+  private addMenuList: (parent: Node) => void = (parent: Node) => {
+    const menu: HTMLUListElement = document.createElement('ul');
+    menu.classList.add('header-menu-wrap');
+    menu.addEventListener('click', (evt: MouseEvent) => {
+      const { value } = <HTMLLIElement>evt.target;
+      window.scroll({ left: 0, top: value * window.innerHeight, behavior: 'smooth' });
+    });
 
-  parent.appendChild(menu);
-};
+    ['Home', 'About', 'Skills', 'Contact'].forEach((item, index) => {
+      const menuItem: HTMLLIElement = document.createElement('li');
+      menuItem.innerText = item;
+      menuItem.value = index;
+      menu.appendChild(menuItem);
+    });
 
-const headerInit: () => void = () => {
-  const [bodyEl] = document.getElementsByTagName('body');
-  const headerEl: HTMLHeadElement = document.createElement('header');
-  const title: HTMLHeadingElement = document.createElement('h1');
-  title.innerText = 'CyanLH';
-  headerEl.appendChild(title);
+    parent.appendChild(menu);
+  };
 
-  const headerButtonWrap: HTMLDivElement = document.createElement('div');
-  headerButtonWrap.classList.add('haeder-items-wrap');
+  headerInit: () => void = () => {
+    this.title.innerText = 'CyanLH';
+    this.headerContainer.appendChild(this.title);
 
-  // const menu: HTMLUListElement = document.createElement('ul');
-  // menu.innerText = 'Home | About | Skills | Contact';
-  // headerButtonWrap.appendChild(menu);
+    const headerButtonWrap: HTMLDivElement = document.createElement('div');
+    headerButtonWrap.classList.add('haeder-items-wrap');
 
-  addMenuList(headerButtonWrap);
-  addToggleSwitch(headerButtonWrap);
+    // const menu: HTMLUListElement = document.createElement('ul');
+    // menu.innerText = 'Home | About | Skills | Contact';
+    // headerButtonWrap.appendChild(menu);
 
-  headerEl.appendChild(headerButtonWrap);
+    this.addMenuList(headerButtonWrap);
+    this.addToggleSwitch(headerButtonWrap);
 
-  if (bodyEl instanceof HTMLBodyElement) {
-    bodyEl.appendChild(headerEl);
-  }
-};
+    this.headerContainer.appendChild(headerButtonWrap);
 
-headerInit();
+    if (this.parent instanceof HTMLBodyElement) {
+      this.parent.appendChild(this.headerContainer);
+    }
+  };
+}

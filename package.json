@@ -5,21 +5,38 @@
   "author": "CyanLH",
   "license": "MIT",
   "scripts": {
-    "start": "tsc && ts-node server",
-    "dev": "nodemon --watch **/*.ts --watch **/*.html --watch **/*.css --watch **/*.js --exec  ts-node server"
+    "start": "webpack && http-server ./dist http:localhost -p 80",
+    "build": "webpack",
+    "dev": "webpack serve --env development"
   },
-  "dependencies": {},
+  "dependencies": {
+    "http-server": "^14.1.0"
+  },
   "devDependencies": {
     "@types/node": "^16.11.4",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "autoprefixer": "^10.4.2",
+    "copy-webpack-plugin": "^10.2.4",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "nodemon": "^2.0.14",
+    "glob": "^7.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "image-webpack-loader": "^8.1.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "postcss": "^8.4.6",
+    "postcss-loader": "^6.2.1",
     "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
+    "sass": "^1.49.7",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }
