@@ -10,7 +10,7 @@
     "start": "webpack && http-server ./dist http:localhost -p 80",
     "build": "webpack",
     "dev": "webpack serve --env development",
-    "deploy": "gh-pages -d dist"
+    "deploy": "webpack && gh-pages -d dist"
   },
   "dependencies": {
     "http-server": "^14.1.0"
