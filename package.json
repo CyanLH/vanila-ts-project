@@ -4,10 +4,13 @@
   "main": "index.js",
   "author": "CyanLH",
   "license": "MIT",
+  "repository": "git@github.com:CyanLH/vanila-ts-project.git",
+  "homepage": "https://cyanlh.github.io/vanila-ts-project/",
   "scripts": {
     "start": "webpack && http-server ./dist http:localhost -p 80",
     "build": "webpack",
-    "dev": "webpack serve --env development"
+    "dev": "webpack serve --env development",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "http-server": "^14.1.0"
@@ -23,6 +26,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
+    "gh-pages": "^3.2.3",
     "glob": "^7.2.0",
     "html-webpack-plugin": "^5.5.0",
     "image-webpack-loader": "^8.1.0",
