@@ -213,7 +213,7 @@ pre {
 .even-better-first {
   transform: translateX(-25em);
   position: relative;
-  /* animation: even-better-animation-first 10s linear infinite; */
+  animation: even-better-animation-first 10s linear infinite;
   display: block;
   color: var(--font-color);
   width: 200%;
@@ -230,7 +230,7 @@ pre {
 .even-better-second {
   transform: translateX(-20em);
   position: relative;
-  /* animation: even-better-animation-second 10s linear infinite; */
+  animation: even-better-animation-second 10s linear infinite;
   display: block;
   color: var(--font-color);
   width: 200%;
