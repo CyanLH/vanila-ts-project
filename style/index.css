@@ -25,6 +25,8 @@
   --background-color-transparent: #121212fa;
   --font-color: #fff;
   --font-color-reverse: #121212;
+  --scrollbar-color: hsla(0, 0%, 42%, 0.29);
+  --scrollbar-thumb-color: hsla(0, 0%, 90%, 0.49);
 }
 
 :root[color-theme='light'] {
@@ -33,6 +35,8 @@
   --background-color-transparent: #fffffffa;
   --font-color: #121212;
   --font-color-reverse: #fff;
+  --scrollbar-color: hsla(0, 0%, 90%, 0.09);
+  --scrollbar-thumb-color: hsla(0, 0%, 42%, 0.49);
 }
 
 :root[color-theme='dark'] {
@@ -41,6 +45,8 @@
   --background-color-transparent: #121212fa;
   --font-color: #fff;
   --font-color-reverse: #121212;
+  --scrollbar-color: hsla(0, 0%, 42%, 0.29);
+  --scrollbar-thumb-color: hsla(0, 0%, 90%, 0.49);
 }
 
 html,
@@ -51,6 +57,28 @@ body {
   margin: unset;
   background-color: var(--background-color);
   transition: all 0.2s ease-in;
+  overflow: overlay;
+  transition: all 0.2s ease-in;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: var(--scrollbar-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px;
 }
 
 body > header {
@@ -123,6 +151,20 @@ main .skills-container .sction-skill-logos {
   gap: 1rem;
 }
 
+@media (max-width: 1279px) {
+  main .skills-container .sction-skill-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 666px) {
+  main .skills-container .sction-skill-logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 main .skills-container .sction-skill-logos .skill-logo {
   height: 128px;
   width: 128px;
@@ -159,7 +201,7 @@ body > footer {
 body > footer > .footer-container {
   display: flex;
   margin: 0 auto;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .footer-container > div,

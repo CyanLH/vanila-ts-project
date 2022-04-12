@@ -74,14 +74,14 @@ class Main {
     <svg class="svg-cyanlh" viewBox="0 0 1320 300">
       <text x="50%" y="50%" dy=".35em" text-anchor="middle">@CyanLH</text>
     </svg>
-    <div>
+    <div id="svg-my-name">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
         <path id="path">
           <animate attributeName="d" from="m0,110 h0" to="m0,110 h1100" dur="6.8s" begin="0s" repeatCount="indefinite"/>
         </path>
         <text font-size="1.55em" font-family="D2Coding" fill="var(--font-color)">
           <textPath xlink:href="#path">
-            const myName = 'LeeHan';
+            const myName = 'CyanLH';
           </textPath>
         </text>
       </svg>
@@ -110,7 +110,14 @@ const init = () => {
   main.contentsInit();
   const footer = new Footer(bodyEl);
   footer.footerInit();
-  console.log({ main, header, footer });
+  // console.log({ main, header, footer });
+
+  const svgMyName = document.getElementById('svg-my-name');
+  if (svgMyName instanceof HTMLDivElement) {
+    svgMyName.addEventListener('click', (evt: MouseEvent) => {
+      window.location.href = 'snake.html';
+    });
+  }
 };
 
 init();

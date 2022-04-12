@@ -53,7 +53,7 @@ export default class Footer {
   footerInit = () => {
     this.container.classList.add('footer-container');
     this.logoInit();
-    this.infoInit();
+    // this.infoInit();
     this.licenseInit();
     this.footer.appendChild(this.container);
 

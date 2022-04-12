@@ -12,7 +12,8 @@ module.exports = {
     extensions: ['.js', '.ts'],
   },
   entry: {
-    app: ['./src/index.ts'],
+    app: './src/index.ts',
+    snake: './src/snake.ts',
   },
   module: {
     rules: [
@@ -44,7 +45,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'app.js',
+    filename: '[name].bundle.js',
   },
   devServer: {
     port: 80,
@@ -55,7 +56,18 @@ module.exports = {
         collapseWhitespace: true,
       },
       hash: true,
-      template: 'index.html',
+      filename: 'index.html',
+      excludeChunks: ['snake'],
+      template: 'pages/index.html',
+    }),
+    new HtmlWebpackPlugin({
+      minify: {
+        collapseWhitespace: true,
+      },
+      hash: true,
+      filename: 'snake.html',
+      chunks: ['snake'],
+      template: 'pages/snake.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

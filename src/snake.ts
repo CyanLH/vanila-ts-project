@@ -1,3 +1,5 @@
+import '../style/snake.css';
+
 let y: number;
 let x: number; // player
 let cy: number;
